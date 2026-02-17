@@ -1,0 +1,142 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  background-color: #121212;
+  color: #f5f5f5;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 30px;
+}
+
+h1, h2, h3 { 
+  font-family: var(--font-baloo), sans-serif;
+  letter-spacing: 2px; 
+  text-transform: uppercase; 
+  font-size: 40px;
+}
+
+.section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+  position: relative;
+  background-color: #121212;
+  color: #fb0;
+}
+
+.logo {
+  max-width: 500px;
+}
+
+.arrow {
+  position: absolute;
+  bottom: 50px;
+  width: 24px;
+  height: 24px;
+  border-left: 3px solid #fb0;
+  border-bottom: 3px solid #fb0;
+  transform: rotate(-45deg);
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) rotate(-45deg); }
+  50% { transform: translateY(10px) rotate(-45deg); }
+}
+
+.contact-links {
+  display: flex;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.contact-icon {
+  font-size: 2rem;
+  color: #fb0; 
+  transition: transform 0.3s, color 0.3s;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.contact-icon:hover {
+  color: #ff0000; 
+  transform: scale(1.2);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fb0;
+  font-size: 2rem;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #fb0;
+  transform: scale(1.2);
+}
+
+.video-wrapper {
+  position: relative;
+  width: 90%;
+  height: 95%;
+  border: none; 
+  padding-left: 95px;
+  outline: none;
+  border-radius: 8px;
+}
+
+.video-wrapper iframe {
+  border: none;
+  outline: none;
+  background: transparent;
+  border-radius: 8px;
+}
+
+.spotify-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200%;
+  height: 100%;
+}
+
+.spotify-wrapper iframe {
+  max-width: 1600px;
+  width: 200%;
+  height: 380px;
+  border: none;
+}
+
+.back-to-top-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.back-to-top {
+  font-family: var(--font-montserrat), sans-serif;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #fb0;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.back-to-top:hover {
+  background-color: #fb0;
+}
+
+
