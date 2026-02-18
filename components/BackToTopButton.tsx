@@ -6,7 +6,6 @@ export default function BackToTopButton() {
         wrapper?.scrollTo({ top: 0, behavior: "smooth" });
     };
 
-
     return (
         <div className="back-to-top-wrapper">
             <button className="back-to-top" onClick={scrollToTop}>

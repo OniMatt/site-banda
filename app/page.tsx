@@ -6,6 +6,7 @@ import VideoCarousel from "../components/VideoCarousel";
 import Contact from "@/components/Contact";
 import Repertoire from "@/components/Repertoire";
 import BackToTopButton from "@/components/BackToTopButton";
+import SideMenu from "@/components/SideMenu";
 
 export default function Home() {
   return (
@@ -30,11 +31,13 @@ export default function Home() {
         <Contact />
       </Section>
 
-      <Section id="about" showArrow={false}>
+      <Section id="sobre" showArrow={false}>
         <h2>Sobre</h2>
         <p>Somos uma banda de rock alternativo da região metropolitana de Porto Alegre e tocamos por ração.</p>
         <BackToTopButton />
       </Section>
+
+      <SideMenu />
     </main> 
   );
 }
