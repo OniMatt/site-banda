@@ -2,18 +2,17 @@
 import { FaEnvelope, FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa";
 
 export default function Contact() {
-  const copyEmail = () => {
-    navigator.clipboard.writeText("bewarethedogsofc@gmail.com");
-    alert("E-mail copiado!");
-  };
-
   return (
     <section id="contact" className="section">
       <h2>Contato</h2>
       <div className="contact-links">
-        <button onClick={copyEmail} className="contact-icon" aria-label="Email">
+        <a
+          href="mailto:bewarethedogsofc@gmail.com"
+          className="contact-icon"
+          aria-label="Email"
+        >
           <FaEnvelope />
-        </button>
+        </a>
         <a
           href="https://instagram.com/beware.thedogs"
           target="_blank"

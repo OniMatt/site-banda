@@ -33,7 +33,9 @@ export default function Home() {
 
       <Section id="sobre" showArrow={false}>
         <h2>Sobre</h2>
-        <p>Somos uma banda de rock alternativo da região metropolitana de Porto Alegre e tocamos por ração.</p>
+        <p style={{ textAlign: 'center'}}>
+        Somos uma banda de rock alternativo de Montenegro/RS e vamos dominar o mundo.
+        </p>
         <BackToTopButton />
       </Section>
 

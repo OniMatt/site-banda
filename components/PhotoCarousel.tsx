@@ -15,10 +15,10 @@ export default function PhotoCarousel() {
       style={{ width: "80%", height: "80vh", objectFit: "contain", display: "flex", borderRadius: "8px" }}
     >
       <SwiperSlide>
-        <img src="/foto-2.jpg" alt="foto 2" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        <img src="/foto-2.jpg" alt="foto 2" style={{ width: "100%", height: "80%", objectFit: "cover" }} />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="/foto-3.jpg" alt="foto 3" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        <img src="/foto-3.jpg" alt="foto 3" style={{ width: "80%", height: "70%", objectFit: "cover" }} />
       </SwiperSlide>
       <SwiperSlide>
         <img src="/foto-1.jpg" alt="foto 1" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
