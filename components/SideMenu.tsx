@@ -1,15 +1,14 @@
-"use client";
+import { navLinks } from "./navLinks";
 
 export default function SideMenu() {
   return (
-    <nav className="side-menu">
+    <nav className="side-menu" aria-label="Seções do site">
       <ul>
-        <li><a href="#home">Início</a></li>
-        <li><a href="#fotos">Fotos</a></li>
-        <li><a href="#videos">Vídeos</a></li>
-        <li><a href="#reperta">Repertório</a></li>
-        <li><a href="#contato">Contato</a></li>
-        <li><a href="#sobre">Sobre</a></li>
+        {navLinks.map((link) => (
+          <li key={link.href}>
+            <a href={link.href}>{link.label}</a>
+          </li>
+        ))}
       </ul>
     </nav>
   );
