@@ -1,10 +1,11 @@
+html {
+  scroll-snap-type: y mandatory;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  scroll-snap-type: y mandatory;
-  overflow-y: auto;
   scroll-behavior: smooth;
   background-color: #121212;
   color: #f5f5f5;
@@ -26,6 +27,7 @@ h1, h2, h3 {
 
 .section {
   height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,8 +38,32 @@ h1, h2, h3 {
   color: #fb0;
 }
 
+/* A margem de topo do primeiro elemento entra na conta do flex e empurra
+   o conteudo visivel para baixo. Sem ela, o bloco centraliza de verdade. */
+.section > :first-child {
+  margin-top: 0;
+}
+
 .logo {
+  width: 100%;
   max-width: 500px;
+  height: auto;
+  transform-origin: 50% 60%;
+  animation: rosnado 10s ease-in-out infinite;
+}
+
+/* Rosnado: tensiona, treme com amplitude decrescente, relaxa.
+   0,8s de movimento a cada ciclo de 10s. */
+@keyframes rosnado {
+  0%   { transform: rotate(0deg)    scale(1); }
+  1%   { transform: rotate(0deg)    scale(1.015); }
+  2%   { transform: rotate(-2.2deg) scale(1.015); }
+  3%   { transform: rotate(2deg)    scale(1.012); }
+  4%   { transform: rotate(-1.6deg) scale(1.01); }
+  5%   { transform: rotate(1.3deg)  scale(1.008); }
+  6%   { transform: rotate(-0.9deg) scale(1.005); }
+  7%   { transform: rotate(0.5deg)  scale(1.002); }
+  8%, 100% { transform: rotate(0deg) scale(1); }
 }
 
 .arrow {
@@ -63,6 +89,11 @@ h1, h2, h3 {
 }
 
 .contact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
   font-size: 2rem;
   color: #fb0; 
   transition: transform 0.3s, color 0.3s;
@@ -74,6 +105,20 @@ h1, h2, h3 {
 .contact-icon:hover {
   color: #ff0000; 
   transform: scale(1.2);
+}
+
+.photo-carousel {
+  width: 80%;
+  height: 80vh;
+}
+
+.photo-slide {
+  position: relative;
+}
+
+.photo-slide .photo {
+  object-fit: contain;
+  border-radius: 8px;
 }
 
 .swiper-button-next,
@@ -125,14 +170,14 @@ h1, h2, h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200%;
+  width: 100%;
   height: 100%;
 }
 
 .spotify-wrapper iframe {
-  max-width: 1600px;
-  width: 200%;
-  height: 380px;
+  max-width: 900px;
+  width: 100%;
+  height: 480px;
   border: none;
 }
 
@@ -158,6 +203,94 @@ h1, h2, h3 {
 .back-to-top:hover {
   background-color: #fb0;
 }
+
+/* ---- Menu do celular ---------------------------------------------------
+   Botao e painel ficam ocultos no desktop, onde o .side-menu ja resolve. */
+
+.menu-botao {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1200;
+  display: none;
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  flex-direction: column;
+  justify-content: space-between;
+  border: none;
+  border-radius: 6px;
+  background: rgba(18, 18, 18, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.menu-risco {
+  display: block;
+  width: 100%;
+  height: 3px;
+  border-radius: 2px;
+  background: #fb0;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+/* tres riscos viram um X quando o painel abre */
+.menu-botao[aria-expanded="true"] .menu-risco:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-botao[aria-expanded="true"] .menu-risco:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-botao[aria-expanded="true"] .menu-risco:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.menu-painel {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: #121212;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.menu-painel[data-aberto="true"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-painel ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.menu-painel li {
+  margin: 4px 0;
+}
+
+.menu-painel a {
+  display: block;
+  padding: 14px 32px;
+  font-family: var(--font-baloo), sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #f5f5f5;
+}
+
+.menu-painel a:hover,
+.menu-painel a:focus-visible {
+  color: #fb0;
+}
+
 
 .side-menu {
   position: fixed;
@@ -216,8 +349,20 @@ h1, h2, h3 {
     height: auto;
   }
 
+  .photo-carousel {
+    width: 100%;
+  }
+
   .side-menu {
-    display: none; 
+    display: none;
+  }
+
+  .menu-botao {
+    display: flex;
+  }
+
+  .menu-painel {
+    display: flex;
   }
 
   .video-wrapper {
@@ -242,5 +387,24 @@ h1, h2, h3 {
     gap: 15px;
     flex-wrap: wrap;
     justify-content: center;
+  }
+}
+
+/* Respeita quem pediu menos movimento no sistema operacional. Precisa ficar
+   no fim do arquivo: mesma especificidade, entao vence quem vem por ultimo. */
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body {
+    scroll-behavior: auto;
+  }
+
+  .logo,
+  .arrow {
+    animation: none;
+  }
+
+  .menu-risco,
+  .menu-painel {
+    transition: none;
   }
 }

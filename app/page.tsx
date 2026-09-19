@@ -1,4 +1,5 @@
-"use client"
+import Image from "next/image";
+import logo from "@/public/logo.png";
 
 import Section from "../components/Section";
 import PhotoCarousel from "../components/PhotoCarousel";
@@ -7,12 +8,13 @@ import Contact from "@/components/Contact";
 import Repertoire from "@/components/Repertoire";
 import BackToTopButton from "@/components/BackToTopButton";
 import SideMenu from "@/components/SideMenu";
+import MobileMenu from "@/components/MobileMenu";
 
 export default function Home() {
   return (
     <main>
       <Section id="home">
-        <img src="/logo.png" alt="Band Logo" className="logo" />
+        <Image src={logo} alt="Beware The Dogs" className="logo" priority />
       </Section>
 
       <Section id="fotos">
@@ -40,6 +42,7 @@ export default function Home() {
       </Section>
 
       <SideMenu />
+      <MobileMenu />
     </main> 
   );
 }

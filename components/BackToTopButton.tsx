@@ -2,8 +2,7 @@
 
 export default function BackToTopButton() {
     const scrollToTop = () => {
-        const wrapper = document.querySelector("body");
-        wrapper?.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     return (
